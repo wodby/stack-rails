@@ -1,0 +1,65 @@
+name: rails
+icon: rails
+title: Rails
+
+services:
+- name: rails
+  title: Rails
+  service: rails
+  required: true
+  derivatives:
+  - name: sidekiq
+    service: rails-sidekiq
+  links:
+  - name: db
+    service: postgres
+  - name: redis
+    service: valkey
+  - name: sendmail
+    service: mailpit
+
+- name: nginx
+  title: Nginx
+  service: nginx
+  required: true
+  containers:
+  - name: nginx
+    env:
+    - name: NGINX_VHOST_PRESET
+      value: http-proxy
+  links:
+  - name: backend
+    service: rails
+
+- name: postgres
+  title: PostgreSQL
+  service: postgres
+  required: true
+  volumes:
+  - name: data
+    size: 20
+
+- name: valkey
+  title: Valkey
+  service: valkey
+  disabled: true
+
+- name: mailpit
+  title: Mailpit
+  service: mailpit
+
+- name: opensmtpd
+  disabled: true
+  title: OpenSMTPD
+  service: opensmtpd
+
+- name: gotenberg
+  required: false
+  disabled: true
+  title: Gotenberg
+  service: gotenberg
+
+- name: cloud-postgres
+  title: Cloud PostgreSQL
+  service: cloud-postgres
+  disabled: true
