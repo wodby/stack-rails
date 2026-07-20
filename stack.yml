@@ -4,7 +4,7 @@ title: Rails
 
 services:
 - name: rails
-  title: Rails
+  title: Ruby
   service: rails
   required: true
   derivatives:
