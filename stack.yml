@@ -7,6 +7,7 @@ services:
   title: Ruby
   service: rails
   required: true
+  main: true
   derivatives:
   - name: sidekiq
     service: rails-sidekiq
@@ -17,22 +18,6 @@ services:
     service: valkey
   - name: sendmail
     service: mailpit
-
-- name: nginx
-  title: Nginx
-  service: nginx
-  required: true
-  main: true
-  workloads:
-  - name: main
-    containers:
-    - name: nginx
-      env:
-      - name: NGINX_VHOST_PRESET
-        value: http-proxy
-  links:
-  - name: backend
-    service: rails
 
 - name: postgres
   title: PostgreSQL
