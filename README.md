@@ -33,7 +33,7 @@ start with Wodby CI build configuration:
 | Ruby (`rails`)<br>`rails` | required; enabled by default; main service; links: `db` → `postgres`, `redis` → `valkey`, `sendmail` → `mailpit`; derivatives: `sidekiq` → `rails-sidekiq` |
 | PostgreSQL (`postgres`)<br>`postgres` | required; enabled by default; volumes: `data` 20 GB |
 | Valkey<br>`valkey` | optional; disabled by default |
-| Mailpit<br>`mailpit` | optional; enabled by default |
+| Mailpit<br>`mailpit` | optional; disabled by default |
 | OpenSMTPD<br>`opensmtpd` | optional; disabled by default |
 | Gotenberg<br>`gotenberg` | optional; disabled by default |
 | Cloud PostgreSQL (`cloud-postgres`)<br>`cloud-postgres` | optional; disabled by default |

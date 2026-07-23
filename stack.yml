@@ -33,6 +33,7 @@ services:
   disabled: true
 
 - name: mailpit
+  disabled: true
   title: Mailpit
   service: mailpit
 
