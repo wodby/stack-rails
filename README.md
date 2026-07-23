@@ -32,7 +32,7 @@ start with Wodby CI build configuration:
 | --- | --- |
 | Ruby (`rails`)<br>`rails` | required; enabled by default; main service; links: `db` → `postgres`, `redis` → `valkey`, `sendmail` → `mailpit`; derivatives: `sidekiq` → `rails-sidekiq` |
 | PostgreSQL (`postgres`)<br>`postgres` | required; enabled by default; volumes: `data` 20 GB |
-| Valkey<br>`valkey` | optional; disabled by default |
+| Valkey<br>`valkey` | required; enabled by default; volumes: `data` 5 GB; persistent data with `noeviction` policy |
 | Mailpit<br>`mailpit` | optional; disabled by default |
 | OpenSMTPD<br>`opensmtpd` | optional; disabled by default |
 | Gotenberg<br>`gotenberg` | optional; disabled by default |
@@ -41,6 +41,12 @@ start with Wodby CI build configuration:
 Enabled optional services are selected by default but can be excluded when an
 app is created. Disabled optional services are available but not selected by
 default. Required services cannot be excluded.
+
+## Background jobs
+
+The Rails boilerplate uses Sidekiq by default. Its worker derivative is enabled
+and the required Rails-to-Valkey link supplies `REDIS_URL`. Valkey uses
+persistent storage and a `noeviction` memory policy suitable for queue data.
 
 ## Deploy this stack
 
