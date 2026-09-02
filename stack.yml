@@ -23,6 +23,9 @@ services:
   title: PostgreSQL
   service: postgres
   required: true
+  tokens:
+  - name: exclude_tables
+    value: 'solid_cache_entries;solid_cable_messages'
   volumes:
   - name: data
     size: 20
