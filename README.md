@@ -11,6 +11,7 @@ composition for Rails.
 
 - [Rails stack on Wodby](https://wodby.com/stacks/rails)
 - [Browse Wodby application stacks](https://wodby.com/stacks)
+- [Rails stack guide](https://wodby.com/docs/2.0/stacks/catalog/rails/)
 - [Wodby stack documentation](https://wodby.com/docs/2.0/stacks/)
 - [Stack manifest reference](https://wodby.com/docs/2.0/stacks/template/)
 
